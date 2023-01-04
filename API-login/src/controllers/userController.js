@@ -4,6 +4,8 @@ const tokenManagment = require("../helpers/tokenManagement");
 const axios = require("axios");
 const user = require("../models/user");
 
+const BUSINESS_PORT = process.env.BUSINESS_PORT || 5000;
+
 class UserController {
   static async signUp(req, res) {
     try {
@@ -55,17 +57,20 @@ class UserController {
     const { page, limit, email } = req.query;
     // filter by email if email is provided and no case sensitive
     try {
-      let users = await axios.get("http://localhost:3002/api/users", {
-        headers: {
-          Authorization: req.headers.authorization,
-          "content-type": "application/json",
-        },
-        params: {
-          page,
-          limit,
-          email,
-        },
-      });
+      let users = await axios.get(
+        `http://localhost:${BUSINESS_PORT}/api/users`,
+        {
+          headers: {
+            Authorization: req.headers.authorization,
+            "content-type": "application/json",
+          },
+          params: {
+            page,
+            limit,
+            email,
+          },
+        }
+      );
       users = users.data.docs;
       res.status(200).json(users);
     } catch (error) {
