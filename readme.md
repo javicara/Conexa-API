@@ -67,4 +67,4 @@ En el repositorio se han incluido ejemplos de estas variables.
 
 Para ver la documentacion de los endpoints, se puede acceder a la siguiente URL:
 
-`http://34.230.177.182:3000/api-docs`
+[Swagger](http://34.230.177.182:3000/api-docs)
