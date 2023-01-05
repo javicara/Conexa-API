@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const cors = require("cors");
 
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -10,6 +11,7 @@ const users = require("./routes/users");
 const morgan = require("morgan");
 
 const LOGIN_PORT = process.env.LOGIN_PORT || 3001;
+const LOGIN_HOST = process.env.LOGIN_HOST || "localhost";
 
 app.listen(LOGIN_PORT, () => {
   console.log(`Server is running on port ${LOGIN_PORT}`);
@@ -39,12 +41,16 @@ const swaggerSpec = {
     },
     servers: [
       {
+        url: `${LOGIN_HOST}:${LOGIN_PORT}`,
+      },
+      {
         url: `http://localhost:${LOGIN_PORT}`,
       },
     ],
   },
   apis: [`${path.join(__dirname, "./routes/*.js")}`],
 };
+app.use(cors());
 
 app.use(
   "/api-docs",
