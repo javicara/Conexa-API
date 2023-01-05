@@ -16,7 +16,7 @@ const LOGIN_HOST = process.env.LOGIN_HOST || "localhost";
 app.listen(LOGIN_PORT, () => {
   console.log(`Server is running on port ${LOGIN_PORT}`);
   console.log(
-    `To see the API documentation, please visit http://localhost:${LOGIN_PORT}/api-docs`
+    `To see the API documentation, please visit ${LOGIN_HOST}:${LOGIN_PORT}/api-docs`
   );
 });
 
