@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev:login": "nodemon ./src/app.js",
+    "start:login": "node ./src/app.js",
     "test": "mocha test ./src/test/users.js"
   },
   "keywords": [],
