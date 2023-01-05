@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const cors = require("cors");
 
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -45,6 +46,7 @@ const swaggerSpec = {
   },
   apis: [`${path.join(__dirname, "./routes/*.js")}`],
 };
+app.use(cors());
 
 app.use(
   "/api-docs",
