@@ -2,7 +2,6 @@ const UserSchema = require("../models/user");
 const bcrypt = require("bcrypt");
 const tokenManagment = require("../helpers/tokenManagement");
 const axios = require("axios");
-const user = require("../models/user");
 
 const BUSINESS_PORT = process.env.BUSINESS_PORT || 5000;
 

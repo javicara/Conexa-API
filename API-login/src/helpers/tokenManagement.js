@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-class tokenManagement {
+class TokenManagement {
   static tokenSign(user) {
     const token = jwt.sign(
       {
@@ -15,4 +15,4 @@ class tokenManagement {
   }
 }
 
-module.exports = tokenManagement;
+module.exports = TokenManagement;
