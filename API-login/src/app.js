@@ -41,7 +41,7 @@ const swaggerSpec = {
     },
     servers: [
       {
-        url: `${LOGIN_HOST}:${LOGIN_PORT}`,
+        url: `http://${LOGIN_HOST}:${LOGIN_PORT}`,
       },
       {
         url: `http://localhost:${LOGIN_PORT}`,

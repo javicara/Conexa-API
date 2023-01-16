@@ -1,6 +1,4 @@
 const UserSchema = require("../models/user");
-const bcrypt = require("bcrypt");
-const tokenManagment = require("../helpers/tokenManagement");
 
 class UserController {
   static async getAllUsers(req, res) {
@@ -12,9 +10,11 @@ class UserController {
     const options = {
       page: parseInt(page, 10) || 1,
       limit: parseInt(limit, 10) || 10,
+      select: "-password",
       sort: { createdAt: -1 },
     };
     try {
+      //dont show de password
       const users = await UserSchema.paginate(filter, options);
       res.status(200).json(users);
     } catch (error) {
